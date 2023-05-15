@@ -1,0 +1,13 @@
+const primeiroElemento = (array) => array[0];
+
+const primeiraLetra = (primeiro) => primeiro[0];
+
+const letraMinuscula = (letra) => letra.toLowerCase();
+
+new Promise(function (resolve) {
+  resolve(["Ana", "Bia", "Carlos", "Daniel"]);
+})
+  .then(primeiroElemento)
+  .then(primeiraLetra)
+  .then(letraMinuscula)
+  .then(console.log);
