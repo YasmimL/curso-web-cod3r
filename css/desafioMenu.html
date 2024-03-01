@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
+        }
+
+        .cabecalho {
+            height: 80px;
+            background-color: #333;
+            border-bottom: solid 5px #4faddb;
+            box-sizing: content-box;
+            color: #fff;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float: right;
+            cursor: pointer;
+            display: none;
+            padding: 0.6rem;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 0.3rem;
+            height: 40px;
+            margin: 20px 15px;
+        }
+
+        @media (max-width: 700px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu a:hover, .ativado {
+            background-color: #40c4ff;
+            color: #000;
+        }
+
+        .menu a {
+            padding: 0.5rem 0.7rem;
+        }
+
+        @media (max-width: 700px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        .autenticacao {
+            position: absolute;
+            top: 28px;
+            right: 30px;
+        }
+
+        .autenticacao a:first-child {
+            margin-right: 1rem;
+        }
+
+        .autenticacao a:last-child {
+            background-color: #f50a31;
+            padding: 0.3rem 1rem;
+            border-radius: 3rem;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 800px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        const capturarHash = () => {
+            document.querySelectorAll('nav a').forEach((element) => {
+                if (element.getAttribute('href') === location.hash) {
+                    element.classList.add('ativado');
+                } else {
+                    element.classList.remove('ativado');
+                }
+            });   
+        }
+
+        window.addEventListener('hashchange', capturarHash);
+        window.addEventListener('load', capturarHash);
+    </script>
+</body>
+
+</html>
